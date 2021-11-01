@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body,
+html {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+th {
+    background-color: #ffaa80;
+}
+table {
+    padding: 20px;
+}
+
+th,
+td {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px 70px 15px 70px;
+}
+
+input {
+    height: 20px;
+    line-height: 30px;
+    border: 1px solid#808080;
+    border-radius: 4px;
+    padding: 5px 5px;
+    font-size: 15px;
+}
+
+button {
+    padding: 8px 40px 8px 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+}
+
+</style>
+</head>
+<body>
+ 
+    <div class="container">
+        <div id="data">
+            <input type="text" id="name" placeholder="Enter Name">
+            <input type="number" id="history" placeholder="Enter Score">
+            <input type="number" id="geography" placeholder="Enter Score">
+            <input type="number" id="music" placeholder="Enter Score">
+            <button>Add</button>
+        </div>
+ 
+        <table id="myTable">
+            <tr>
+                <th>Name</th>
+                <th>History</th>
+                <th>Geography</th>
+                <th>Music</th>
+            </tr>
+ 
+            <tr>
+                <td>Salome</td>
+                <td>20</td>
+                <td>30</td>
+                <td>45</td>
+            </tr>
+ 
+            <tr>
+                <td>Lika</td>
+                <td>45</td>
+                <td>60</td>
+                <td>10</td>
+            </tr>
+ 
+            <tr>
+                <td>Ana</td>
+                <td>30</td>
+                <td>55</td>
+                <td>25</td>
+            </tr>
+        </table>
+ 
+    </div>
+ 
+ 
+    <script>
+let btnAdd = document.querySelector('button');
+let table = document.querySelector('table');
+ 
+ 
+let nameInput = document.querySelector('#name');
+let historyInput = document.querySelector('#history');
+let geographyInput = document.querySelector('#geography');
+let musicInput = document.querySelector('#music');
+ 
+ 
+btnAdd.addEventListener('click', () => {
+    let name = nameInput.value;
+    let history = historyInput.value;
+    let geography = geographyInput.value;
+    let music = musicInput.value;
+ 
+    let template = `
+                <tr>
+                    <td>${name}</td>
+                    <td>${history}</td>
+                    <td>${geography}</td>
+                    <td>${music}</td>
+                </tr>`;
+ 
+    table.innerHTML += template;
+});
+</script>
+    
+</body>
+</html>
